@@ -1,0 +1,6 @@
+framework module PusherKit {
+  umbrella header "PusherKit.h"
+
+  export *
+  module * { export * }
+}

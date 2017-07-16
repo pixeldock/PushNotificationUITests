@@ -1,0 +1,21 @@
+{
+  "iOS" : [
+    {
+      "hash" : "f214f4f9c20590d1180907e57817686b67fcf2e2ecc4e4081e63360c7e49ac16",
+      "name" : "PusherKit"
+    }
+  ],
+  "commitish" : "0.7.5",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "Mac" : [
+    {
+      "hash" : "9d9fbee05996f8e04abceee8fdcaf2b1c5f2095dab2d0cbd9b7623602f390fd6",
+      "name" : "PusherKit"
+    }
+  ]
+}
