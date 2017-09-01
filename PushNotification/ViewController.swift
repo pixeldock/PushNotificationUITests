@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.frame = view.frame
-        titleLabel.font = UIFont.systemFont(ofSize: 40, weight: UIFontWeightThin)
+        titleLabel.font = UIFont.systemFont(ofSize: 40, weight: UIFont.Weight.thin)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         view.addSubview(titleLabel)        
@@ -34,14 +34,14 @@ class ViewController: UIViewController {
         
         let closeButton = UIButton(type: .custom)
         closeButton.setTitleColor(.white, for: .normal)
-        closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: UIFontWeightThin)
+        closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.thin)
         closeButton.setTitle("Close", for: .normal)
         closeButton.addTarget(self, action: #selector(didPressCloseButton), for: .touchUpInside)
         closeButton.frame = CGRect(x: view.bounds.maxX - 100, y: 30, width: 100, height: 40)
         view.addSubview(closeButton)
     }
     
-    func didPressCloseButton(_ button: UIButton) {
+    @objc func didPressCloseButton(_ button: UIButton) {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     

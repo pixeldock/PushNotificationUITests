@@ -17,7 +17,7 @@ class PushNotificationUITests: XCTestCase {
     }
     
     func testPushNotifications() {
-        let app = XCUIApplication()!
+        let app = XCUIApplication()
         app.launchArguments.append("isRunningUITests")
         app.launch()
         
@@ -30,7 +30,9 @@ class PushNotificationUITests: XCTestCase {
         
         let deviceToken = app.staticTexts.element(matching: .any, identifier: "tokenLabel").label
         
-        XCUIDevice.shared().press(XCUIDeviceButton.home)
+        XCUIDevice.shared.press(XCUIDevice.Button.home)
+        
+        sleep(1)
         
         // Test Red Push Notification
         triggerPushNotification(
@@ -42,7 +44,9 @@ class PushNotificationUITests: XCTestCase {
         XCTAssert(app.staticTexts["Red"].exists)
         app.buttons["Close"].tap()
         
-        XCUIDevice.shared().press(XCUIDeviceButton.home)
+        XCUIDevice.shared.press(XCUIDevice.Button.home)
+        
+        sleep(1)
         
         // Test Green Push Notification
         triggerPushNotification(
@@ -54,7 +58,9 @@ class PushNotificationUITests: XCTestCase {
         XCTAssert(app.staticTexts["Green"].exists)
         app.buttons["Close"].tap()
         
-        XCUIDevice.shared().press(XCUIDeviceButton.home)
+        XCUIDevice.shared.press(XCUIDevice.Button.home)
+        
+        sleep(1)
         
         // Test Blue Push Notification
         triggerPushNotification(
@@ -75,11 +81,11 @@ extension XCTestCase {
         
         do {
             let data = try Data(contentsOf: url)
-            let pusher = try NWPusher.connect(withPKCS12Data: data, password: "push_it!", environment: .auto)
+            let pusher = try NWPusher.connect(withPKCS12Data: data, password: "pusher", environment: .auto)
             print("CONNECTED")
             do {
                 try pusher.pushPayload(payload, token: deviceToken, identifier: UInt(arc4random_uniform(UInt32(999))))
-                print("")
+                print("Send PUSH")
             } catch {
                 print("COULD NOT SEND PUSH")
             }
