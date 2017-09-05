@@ -28,9 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerForPushNotifications()
         
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
-            let aps = notification["aps"] as! [String: AnyObject]
-            
-            handlePushNotification(withPayload: aps)
+            handle(notification)
         }
         
         return true
@@ -105,18 +103,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(
         _ application: UIApplication,
-        didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        let aps = userInfo["aps"] as! [String: AnyObject]
-        handlePushNotification(withPayload: aps)
+        handle(userInfo)
     }
     
-    func handlePushNotification(withPayload payload: [String: AnyObject]) {
+    func handle(_ pushNotification: [AnyHashable: Any]) {
         guard
-            let presentationType = payload["vcType"] as? String,
-            let viewControllerType = ViewControllerType(rawValue: presentationType)
-            else { return }
+            let viewControllerName = pushNotification["vcType"] as? String,
+            let viewControllerType = ViewControllerType(rawValue: viewControllerName) else { return }
         
         viewController.presentViewController(withType: viewControllerType)
     }

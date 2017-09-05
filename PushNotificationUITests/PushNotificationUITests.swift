@@ -36,7 +36,7 @@ class PushNotificationUITests: XCTestCase {
         
         // Test Red Push Notification
         triggerPushNotification(
-            withPayload: "{\"aps\":{\"alert\":\"Hello Red\",\"badge\":1,\"sound\":\"default\", \"vcType\":\"red\"}}",
+            withPayload: "{\"aps\":{\"alert\":\"Hello Red\"}, \"vcType\":\"red\"}",
             deviceToken: deviceToken)
                 
         springboard.otherElements["PUSHNOTIFICATION, now, Hello Red"].tap()
@@ -50,7 +50,7 @@ class PushNotificationUITests: XCTestCase {
         
         // Test Green Push Notification
         triggerPushNotification(
-            withPayload: "{\"aps\":{\"alert\":\"Hello Green\",\"badge\":1,\"sound\":\"default\", \"vcType\":\"green\"}}",
+            withPayload: "{\"aps\":{\"alert\":\"Hello Green\"}, \"vcType\":\"green\"}",
             deviceToken: deviceToken)
         
         springboard.otherElements["PUSHNOTIFICATION, now, Hello Green"].tap()
@@ -64,7 +64,7 @@ class PushNotificationUITests: XCTestCase {
         
         // Test Blue Push Notification
         triggerPushNotification(
-            withPayload: "{\"aps\":{\"alert\":\"Hello Blue\",\"badge\":1,\"sound\":\"default\", \"vcType\":\"blue\"}}",
+            withPayload: "{\"aps\":{\"alert\":\"Hello Blue\"}, \"vcType\":\"blue\"}",
             deviceToken: deviceToken)
         
         springboard.otherElements["PUSHNOTIFICATION, now, Hello Blue"].tap()
