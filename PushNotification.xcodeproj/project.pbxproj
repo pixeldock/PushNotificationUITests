@@ -39,9 +39,6 @@
 		80C97C981F12AC3200E091A5 /* PushNotificationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationUITests.swift; sourceTree = "<group>"; };
 		80C97C9A1F12AC3200E091A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80C97CA61F12ADA000E091A5 /* PushNotification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushNotification.entitlements; sourceTree = "<group>"; };
-		80FD3D821F1B6DB6005DBF4F /* XCUIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCUIApplication.h; sourceTree = "<group>"; };
-		80FD3D831F1B6DB6005DBF4F /* XCUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCUIElement.h; sourceTree = "<group>"; };
-		80FD3D841F1B6E50005DBF4F /* PushNotificationUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PushNotificationUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,21 +104,10 @@
 		80C97C971F12AC3200E091A5 /* PushNotificationUITests */ = {
 			isa = PBXGroup;
 			children = (
-				80FD3D7D1F1B6C45005DBF4F /* PrivateHeaders */,
 				80C97C981F12AC3200E091A5 /* PushNotificationUITests.swift */,
 				80C97C9A1F12AC3200E091A5 /* Info.plist */,
-				80FD3D841F1B6E50005DBF4F /* PushNotificationUITests-Bridging-Header.h */,
 			);
 			path = PushNotificationUITests;
-			sourceTree = "<group>";
-		};
-		80FD3D7D1F1B6C45005DBF4F /* PrivateHeaders */ = {
-			isa = PBXGroup;
-			children = (
-				80FD3D821F1B6DB6005DBF4F /* XCUIApplication.h */,
-				80FD3D831F1B6DB6005DBF4F /* XCUIElement.h */,
-			);
-			name = PrivateHeaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,7 +455,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pixeldock.PushNotificationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "PushNotificationUITests/PushNotificationUITests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -491,7 +477,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pixeldock.PushNotificationUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "PushNotificationUITests/PushNotificationUITests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = PushNotification;
