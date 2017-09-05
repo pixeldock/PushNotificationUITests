@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		80BA53BB1F1A3A7E002B5C06 /* pusher.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 80011F0E1F1A30F100C965BA /* pusher.p12 */; };
 		80BA53BC1F1A3AD1002B5C06 /* PusherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80011F091F1A2B0F00C965BA /* PusherKit.framework */; };
 		80C97C791F12AC3100E091A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C97C781F12AC3100E091A5 /* AppDelegate.swift */; };
 		80C97C7B1F12AC3100E091A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C97C7A1F12AC3100E091A5 /* ViewController.swift */; };
@@ -28,7 +27,6 @@
 
 /* Begin PBXFileReference section */
 		80011F091F1A2B0F00C965BA /* PusherKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PusherKit.framework; path = Carthage/Build/iOS/PusherKit.framework; sourceTree = "<group>"; };
-		80011F0E1F1A30F100C965BA /* pusher.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = pusher.p12; path = ../../../../Desktop/pusher.p12; sourceTree = "<group>"; };
 		80C97C751F12AC3100E091A5 /* PushNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C97C781F12AC3100E091A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C97C7A1F12AC3100E091A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 		80C97C771F12AC3100E091A5 /* PushNotification */ = {
 			isa = PBXGroup;
 			children = (
-				80011F0E1F1A30F100C965BA /* pusher.p12 */,
 				80C97CA61F12ADA000E091A5 /* PushNotification.entitlements */,
 				80C97C781F12AC3100E091A5 /* AppDelegate.swift */,
 				80C97C7A1F12AC3100E091A5 /* ViewController.swift */,
@@ -216,7 +213,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80BA53BB1F1A3A7E002B5C06 /* pusher.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
