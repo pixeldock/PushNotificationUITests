@@ -11,3 +11,5 @@ To make this demo work on your machine follow these steps:
 5. Add the p12 file to the project UITest target
 
 That should be it.
+
+Here is a video of the test in action: https://youtu.be/Nl97SBXk7bU
