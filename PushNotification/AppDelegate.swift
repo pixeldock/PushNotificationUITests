@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func registerForPushNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {
             (granted, error) in
             guard granted else { return }
             
@@ -92,8 +92,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             viewController.tokenLabel?.text = token
         }
-        
-        print("Device Token: \(token)")
     }
     
     func application(_ application: UIApplication,
