@@ -21,55 +21,63 @@ class PushNotificationUITests: XCTestCase {
         app.launchArguments.append("isRunningUITests")
         app.launch()
         
-        let springboard = XCUIApplication(privateWithPath: nil, bundleID: "com.apple.springboard")!
-        springboard.resolve()
+        // access to the springboard (to be able to tap the notification later)
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         
+        // dismiss the system dialog if it pops up
         allowPushNotificationsIfNeeded()
         
-        XCTAssert(app.staticTexts["Welcome!"].exists)
-        
+        // get the current deviceToken from the app
         let deviceToken = app.staticTexts.element(matching: .any, identifier: "tokenLabel").label
         
+        // close app
         XCUIDevice.shared.press(XCUIDevice.Button.home)
-        
         sleep(1)
         
-        // Test Red Push Notification
+        // trigger red Push Notification
         triggerPushNotification(
             withPayload: "{\"aps\":{\"alert\":\"Hello Red\"}, \"vcType\":\"red\"}",
             deviceToken: deviceToken)
                 
+        // tap on the notification when it is received
         springboard.otherElements["PUSHNOTIFICATION, now, Hello Red"].tap()
         
+        // check if the red view controller is shown
         XCTAssert(app.staticTexts["Red"].exists)
+        
+        // dismiss modal view controller and close app
         app.buttons["Close"].tap()
-        
         XCUIDevice.shared.press(XCUIDevice.Button.home)
-        
         sleep(1)
         
-        // Test Green Push Notification
+        // trigger green Push Notification
         triggerPushNotification(
             withPayload: "{\"aps\":{\"alert\":\"Hello Green\"}, \"vcType\":\"green\"}",
             deviceToken: deviceToken)
         
+        // tap on the notification when it is received
         springboard.otherElements["PUSHNOTIFICATION, now, Hello Green"].tap()
         
+        // check if the green view controller is shown
         XCTAssert(app.staticTexts["Green"].exists)
+        
+        // dismiss modal view controller and close app
         app.buttons["Close"].tap()
-        
         XCUIDevice.shared.press(XCUIDevice.Button.home)
-        
         sleep(1)
         
-        // Test Blue Push Notification
+        // trigger blue Push Notification
         triggerPushNotification(
             withPayload: "{\"aps\":{\"alert\":\"Hello Blue\"}, \"vcType\":\"blue\"}",
             deviceToken: deviceToken)
         
+        // tap on the notification when it is received
         springboard.otherElements["PUSHNOTIFICATION, now, Hello Blue"].tap()
         
+        // check if the blue view controller is shown
         XCTAssert(app.staticTexts["Blue"].exists)
+        
+        // dismiss modal view controller 
         app.buttons["Close"].tap()
     }
 }
@@ -82,13 +90,7 @@ extension XCTestCase {
         do {
             let data = try Data(contentsOf: url)
             let pusher = try NWPusher.connect(withPKCS12Data: data, password: "pusher", environment: .auto)
-            print("CONNECTED")
-            do {
-                try pusher.pushPayload(payload, token: deviceToken, identifier: UInt(arc4random_uniform(UInt32(999))))
-                print("Send PUSH")
-            } catch {
-                print("COULD NOT SEND PUSH")
-            }
+            try pusher.pushPayload(payload, token: deviceToken, identifier: UInt(arc4random_uniform(UInt32(999))))
         } catch {
             print(error)
         }
