@@ -97,11 +97,12 @@ extension XCTestCase {
     }
 
     func allowPushNotificationsIfNeeded() {
-        addUIInterruptionMonitor(withDescription: "“RemoteNotification” Would Like to Send You Notifications") { (alerts) -> Bool in
+        addUIInterruptionMonitor(withDescription: "Remote Authorization") { (alerts) -> Bool in
             if(alerts.buttons["Allow"].exists){
-                alerts.buttons["Allow"].tap();
+                alerts.buttons["Allow"].tap()
+                return true
             }
-            return true;
+            return false
         }
         XCUIApplication().tap()
     }
